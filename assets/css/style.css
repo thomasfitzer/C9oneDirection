@@ -1,0 +1,85 @@
+
+  #center {
+    margin:auto;
+}
+#form-buscar {
+    margin: auto;
+}
+
+  .navbar-top-gradient {
+      display: block;
+      position: relative;
+      z-index: 99;
+      margin-bottom: -7px;
+      height: 7px;
+      width: 100%;
+      background: linear-gradient(to right, #d44727 10%, #77bc1f 50%, #6e335e 90%);
+  }
+  #navbar-container {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0px, auto, 0px, 0px;
+   
+  }
+  
+  .navbar {
+      border-bottom: 1px solid lightgray;
+  }
+  
+  #nav-links {
+      margin-left: 4%;
+      font-size: 1.4em;
+      border-left: 1px solid lightgray;
+      margin-top:4%;
+      text-transform: uppercase;
+      -webkit-border-image: 
+      -webkit-gradient(linear, 0 100%, 0 0, from(gray), to(rgba(255, 255, 255, 1))) 1 10%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;
+    -moz-border-image:
+      -moz-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;  
+    -o-border-image:
+      -o-linear-gradient(bottom, gray, rgb(255, 255, 255)) 1 10%;
+    border-image:
+      linear-gradient(to top, lightgray, rgb(255, 255, 255)) 1 10%;
+  }
+  #on-left {
+    margin-left: 4%;
+      border-right: 1px solid lightgray;
+      border-left: 1px solid lightgray;
+      margin-top:4%;
+      text-transform: uppercase;
+      white-space: nowrap;
+      -webkit-border-image: 
+      -webkit-gradient(linear, 0 100%, 0 0, from(gray), to(rgba(255, 255, 255, 1))) 1 10%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;
+    -moz-border-image:
+      -moz-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;  
+    -o-border-image:
+      -o-linear-gradient(bottom, gray, rgb(255, 255, 255)) 1 10%;
+    border-image:
+      linear-gradient(to top, lightgray, rgb(255, 255, 255)) 1 10%;
+  }
+  .carousel-item {
+    opacity: 0;
+    transition-duration: 1.6s!important;
+    transition-property: opacity;
+}
+
+.three-links {
+    /* margin: auto; */
+}
+.link-1 {
+    display: inline;
+    /* margin: auto; */
+}
+.link-2 {
+    display: inline;
+
+}
+.link-3 {
+    display: inline;
+}
+ 
