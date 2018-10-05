@@ -48,6 +48,7 @@
       timer--;
       $("#timer").append("<h3>" + (number) + "</h3>");
       if(timer === 0) {
+        stopTimer();
      console.log("Out of Time!");
     }
   } 
