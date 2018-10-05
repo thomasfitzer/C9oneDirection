@@ -3,7 +3,7 @@ $(document).ready(function () {
         var userSearch = $(".form-control").val().trim()
         queryURL = "https://api.fda.gov/drug/event.json?api_key=2hkdwDIItI5PuX5ixDLDGLU0jQNuXzufK2JiOHIk&search=patient.reaction.reactionmeddrapt:" + userSearch + "&limit=1"
 
-        // console.log("hi")
+        console.log("hi")
 
 
         $.ajax({
