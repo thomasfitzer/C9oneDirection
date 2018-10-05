@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
   html {
+=======
+html {
+>>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
     box-sizing: border-box;
     font-size: 10px;
     background: #ffc600;
@@ -15,6 +19,7 @@
     font-family: 'Amatic SC', 'cursive';
   }
   
+<<<<<<< HEAD
   #game {
     box-sizing: border-box;
     font-size: 10px;
@@ -33,6 +38,8 @@
     font-family: 'Amatic SC', 'cursive';
   }
   
+=======
+>>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
   h1 {
     text-align: center;
     font-size: 10rem;
@@ -83,7 +90,11 @@
   
   .hole:after {
     display: block;
+<<<<<<< HEAD
     background: url(assets/images/pill\ bottle.png) bottom center no-repeat;
+=======
+    background: url(pill\ bottle.jpg) bottom center no-repeat;
+>>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
     background-size: contain;
     content: '';
     width: 100%;
@@ -99,17 +110,30 @@
   }
   
   .mole {
+<<<<<<< HEAD
     background: url('assets/images/crazy.png') bottom center no-repeat;
     background-size: 60%;
     position: absolute;
     top: 80%;
     width: 80%;
+=======
+    background: url('crazy.jpg') bottom center no-repeat;
+    background-size: 60%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+>>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
     height: 100%;
     transition:all 0.4s;
     z-index: 1;
     margin: auto;
+<<<<<<< HEAD
     left: 50px;
     bottom: 415px;
+=======
+    left: 30px;
+    bottom: 475px;
+>>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
   }
   
   .hole.up .mole {
@@ -136,6 +160,7 @@
     height: 40px;
     font-size: 30px;
     float: left;
+<<<<<<< HEAD
   }
   
   #center {
@@ -273,4 +298,6 @@ footer {
 }
 #container {
     color: var(--blue);
+=======
+>>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
   }
