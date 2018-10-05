@@ -64,7 +64,7 @@ html {
   
   .hole:after {
     display: block;
-    background: url(pill\ bottle.jpg) bottom center no-repeat;
+    background: url("assets/images/pill\ bottle.png") bottom center no-repeat;
     background-size: contain;
     content: '';
     width: 100%;
@@ -80,16 +80,16 @@ html {
   }
   
   .mole {
-    background: url('crazy.jpg') bottom center no-repeat;
+    background: url('assets/images/crazy.png') bottom center no-repeat;
     background-size: 60%;
     position: absolute;
     top: 100%;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     transition:all 0.4s;
     z-index: 1;
     margin: auto;
-    left: 30px;
+    left: 50px;
     bottom: 475px;
   }
   
@@ -117,4 +117,141 @@ html {
     height: 40px;
     font-size: 30px;
     float: left;
+  }
+  
+  #center {
+    margin:auto;
+}
+#form-buscar {
+    margin: auto;
+}
+a {
+    text-align: center;
+}
+  .navbar-top-gradient {
+      display: block;
+      position: relative;
+      z-index: 99;
+      margin-bottom: -7px;
+      height: 7px;
+      width: 100%;
+      background: linear-gradient(to right, #d44727 10%, #77bc1f 50%, #6e335e 90%);
+  }
+  #navbar-container {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0px, auto, 0px, 0px;
+   
+  }
+  
+  .navbar {
+      border-bottom: 1px solid lightgray;
+  }
+  
+  #nav-links {
+      
+      margin-left: 9%;
+      font-size: 1.4em;
+      border-left: 1px solid lightgray;
+      margin-top:4%;
+      text-transform: uppercase;
+      -webkit-border-image: 
+      -webkit-gradient(linear, 0 100%, 0 0, from(gray), to(rgba(255, 255, 255, 1))) 1 10%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;
+    -moz-border-image:
+      -moz-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;  
+    -o-border-image:
+      -o-linear-gradient(bottom, gray, rgb(255, 255, 255)) 1 10%;
+    border-image:
+      linear-gradient(to top, lightgray, rgb(255, 255, 255)) 1 10%;
+  }
+  #on-left {
+    margin-left: 4%;
+      border-right: 1px solid lightgray;
+      border-left: 1px solid lightgray;
+      margin-top:4%;
+      text-transform: uppercase;
+      white-space: nowrap;
+      -webkit-border-image: 
+      -webkit-gradient(linear, 0 100%, 0 0, from(gray), to(rgba(255, 255, 255, 1))) 1 10%;
+    -webkit-border-image: 
+      -webkit-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;
+    -moz-border-image:
+      -moz-linear-gradient(bottom, gray, rgba(255, 255, 255, 1)) 1 10%;  
+    -o-border-image:
+      -o-linear-gradient(bottom, gray, rgb(255, 255, 255)) 1 10%;
+    border-image:
+      linear-gradient(to top, lightgray, rgb(255, 255, 255)) 1 10%;
+  }
+  .carousel-item {
+    opacity: 0;
+    transition-duration: 1.6s!important;
+    transition-property: opacity;
+}
+
+.three-links {
+    margin: auto;
+}
+.link-1 {
+    display: inline;
+    padding: 3%;
+}
+.link-2 {
+    display: inline;
+    padding: 3%;
+
+}
+.link-3 {
+    display: inline;
+    padding: 3%;
+}
+#jumbotron {
+    background-color: white;
+    text-align: center;
+    margin: auto;
+}
+
+.link-1:hover {
+    /* on hover - scale to this x,y size */
+    transform: scale(1.15,1.15);
+    /* property values: name, duration, iteration, timing-function */
+  animation: jiggle 0.5s infinite linear;
+}
+p {
+    background-color: white;
+}
+
+#container {
+    width: 800px;
+    margin-inline-start: 25%;
+    margin-top: 75px;
+    margin-bottom: 0px;
+}
+p{
+  text-justify: auto;
+  font: gray;
+  font-size: 23px;
+  text-indent: 50px;
+  font-family: 'Crimson Text', serif;
+}
+#jumbotron-statement {
+    text-align: center;
+    margin: auto;
+
+}
+#jumbotron {
+    background-color: white;
+    text-align: center;
+    margin: auto;
+}
+footer {
+    border-top: 1px solid gray;
+}
+.row-2-image {
+    float: left;
+}
+#container {
+    color: var(--blue);
   }
