@@ -1,4 +1,143 @@
 
+  html {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: #ffc600;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Amatic SC', 'cursive';
+  }
+  
+  #game {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: #ffc600;
+  }
+  .game {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: #ffc600;
+  }
+  
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Amatic SC', 'cursive';
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 10rem;
+    line-height: 1;
+    margin-bottom: 0;
+    position: relative;
+    left: 30px;
+  }
+  
+  .score {
+    background: rgba(255,255,255,0.2);
+    padding: 0 3rem;
+    line-height: 1;
+    border-radius: 1rem;
+  }
+
+  #timer{
+    background: rgba(255,255,255,0.2);
+    width: 80px;
+    height: 40px;
+    font-family: 'Amatic SC', 'cursive';
+    font-size: 35px;
+    text-align: center;
+    z-index: 3;
+    position: relative;
+    float: left;
+    left: 637px;
+    top: -33px;
+  }
+  
+  .game {
+    width: 600px;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    position: relative;
+    top: 50px;
+  }
+  
+  .hole {
+    flex: 1 0 33.33%;
+    
+    position: relative;
+    top: 50px;
+    right: 120px;
+  }
+  
+  .hole:after {
+    display: block;
+    background: url(assets/images/pill\ bottle.png) bottom center no-repeat;
+    background-size: contain;
+    content: '';
+    width: 100%;
+    height:200px;
+    position: relative;
+
+    z-index: 2;
+    margin: 30px 30px 30px 30px;
+    
+  }
+  #bottomrow{
+    z-index: 4;
+  }
+  
+  .mole {
+    background: url('assets/images/crazy.png') bottom center no-repeat;
+    background-size: 60%;
+    position: absolute;
+    top: 80%;
+    width: 80%;
+    height: 100%;
+    transition:all 0.4s;
+    z-index: 1;
+    margin: auto;
+    left: 50px;
+    bottom: 415px;
+  }
+  
+  .hole.up .mole {
+    top: 0;
+  }
+
+  #startbutton{
+    font-family: 'Amatic SC', 'cursive';
+    position: relative;
+    left: 525px;
+    z-index: 5;
+    width: 80px;
+    height: 40px;
+    font-size: 30px;
+    float: left;
+  }
+
+  #resetbutton{
+    font-family: 'Amatic SC', 'cursive';
+    position: relative;
+    left: 750px;
+    z-index: 5;
+    width: 80px;
+    height: 40px;
+    font-size: 30px;
+    float: left;
+  }
+  
   #center {
     margin:auto;
 }
