@@ -69,17 +69,30 @@
 }
 
 .three-links {
-    /* margin: auto; */
+    margin: auto;
 }
 .link-1 {
     display: inline;
-    /* margin: auto; */
+    padding: 3%;
 }
 .link-2 {
     display: inline;
+    padding: 3%;
 
 }
 .link-3 {
     display: inline;
+    padding: 3%;
 }
- 
+#jumbotron {
+    background-color: white;
+    text-align: center;
+    margin: auto;
+}
+
+.link-1:hover {
+    /* on hover - scale to this x,y size */
+    transform: scale(1.15,1.15);
+    /* property values: name, duration, iteration, timing-function */
+    animation: jiggle 0.5s infinite linear;
+  }
