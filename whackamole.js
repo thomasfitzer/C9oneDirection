@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const holes = document.querySelectorAll('.hole');
-=======
   const holes = document.querySelectorAll('.hole');
->>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
   let lastHole;
@@ -27,11 +23,7 @@ const holes = document.querySelectorAll('.hole');
 
 
   function peep() {
-<<<<<<< HEAD
-    const time = randomTime(2000, 2150);
-=======
     const time = randomTime(600, 1150);
->>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
     const hole = randomHole(holes);
     hole.classList.add('up');
     setTimeout(() => {
@@ -39,27 +31,17 @@ const holes = document.querySelectorAll('.hole');
       if (!timeUp) peep();
     }, time);
   }
-<<<<<<< HEAD
-  document.getElementById("startbutton").addEventListener("click", startGame);
-=======
   document.getElementById("startbutton").addEventListener("click", startGame, startTimer);
->>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
   function startGame() {
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
-<<<<<<< HEAD
-    peep();
-    setTimeout(() => timeUp = true, 10000)
-  }
-=======
     
     peep();
     setTimeout(() => timeUp = true, 10000)
   }
 
  
->>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
   
   
   function bonk(e) {
@@ -68,9 +50,6 @@ const holes = document.querySelectorAll('.hole');
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
   }
-<<<<<<< HEAD
-  moles.forEach(mole => mole.addEventListener('click', bonk));
-=======
   moles.forEach(mole => mole.addEventListener('click', bonk));
 
   // countdown: function() {
@@ -99,4 +78,3 @@ const holes = document.querySelectorAll('.hole');
 
   //   card.append("<button id='done'>Done</button>");
   // },
->>>>>>> 17ceff73813de9a0a7cc6400f5ac7377d3be54f9
