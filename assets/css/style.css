@@ -5,7 +5,9 @@
 #form-buscar {
     margin: auto;
 }
-
+a {
+    text-align: center;
+}
   .navbar-top-gradient {
       display: block;
       position: relative;
@@ -28,7 +30,8 @@
   }
   
   #nav-links {
-      margin-left: 4%;
+      
+      margin-left: 9%;
       font-size: 1.4em;
       border-left: 1px solid lightgray;
       margin-top:4%;
@@ -94,5 +97,38 @@
     /* on hover - scale to this x,y size */
     transform: scale(1.15,1.15);
     /* property values: name, duration, iteration, timing-function */
-    animation: jiggle 0.5s infinite linear;
-  }
+  animation: jiggle 0.5s infinite linear;
+}
+p {
+    background-color: white;
+}
+
+#container {
+    width: 800px;
+    margin-inline-start: 25%;
+    margin-top: 75px;
+    margin-bottom: 0px;
+}
+p{
+  text-justify: auto;
+  font: gray;
+  font-size: 24px;
+  text-indent: 50px;
+  font-family: 'Crimson Text', serif;
+}
+#jumbotron-statement {
+    text-align: center;
+    margin: auto;
+
+}
+#jumbotron {
+    background-color: white;
+    text-align: center;
+    margin: auto;
+}
+footer {
+    border-top: 1px solid gray;
+}
+.row-2-image {
+    float: left;
+}
