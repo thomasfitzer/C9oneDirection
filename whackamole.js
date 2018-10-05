@@ -4,6 +4,8 @@
   let lastHole;
   let timeUp = false;
   let score = 0;
+  var number = 10;
+  var intervalId;
   
   function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -31,17 +33,59 @@
       if (!timeUp) peep();
     }, time);
   }
-  document.getElementById("startbutton").addEventListener("click", startGame, startTimer);
+  document.getElementById("startbutton").addEventListener("click", startGame);
   function startGame() {
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
+    var timer = $("#timer");
+   
+    document.getElementById("startbutton").addEventListener("click", startTimer);
+    function startTimer() {
+      intervalId = setInterval(decrement, 10000);
     
+    function decrement() {
+      timer--;
+      $("#timer").append("<h3>" + (number) + "</h3>");
+      if(timer === 0) {
+     console.log("Out of Time!");
+    }
+  } 
+
+    
+ }
     peep();
     setTimeout(() => timeUp = true, 10000)
-  }
+    startTimer();
+  };
+
+  function stopTimer(){
+    clearInterval(intervalId)
+  };
 
  
+ 
+//  var intervalId;
+//         function runTimer() {
+//             intervalId = setInterval(decrement, 1000);
+//         }
+//         function decrement() {
+  //           number--;
+  //           $("#show-number").html("<h2>" + (number) + "</h2>");
+//             //Stops the timer when it reaches 0.
+//           if (number === 0) {
+    
+//             stopTimer();
+//           };
+          
+
+//         }
+//         //When the timer is stopped, the interval is cleared.
+//         function stopTimer(){
+//             clearInterval(intervalId);
+//         }
+//         $("#startButton").on("click", runTimer);
+//         $("#show-number").html("<h2>" + (number) + "</h2>");
   
   
   function bonk(e) {
@@ -52,29 +96,6 @@
   }
   moles.forEach(mole => mole.addEventListener('click', bonk));
 
-  // countdown: function() {
-  //   game.counter--;
-  //   $("#counter-number").html(game.counter);
-  //   if (game.counter === 0) {
-  //     console.log("TIME UP");
-  //     game.done();
-  //   }
-  // },
+  
 
-  // start: function() {
-  //   timer = setInterval(game.countdown, 1000);
 
-  //   $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>120</span> Seconds</h2>");
-
-  //   $("#start").remove();
-
-  //   for (var i = 0; i < questions.length; i++) {
-  //     card.append("<h2>" + questions[i].question + "</h2>");
-  //     for (var j = 0; j < questions[i].answers.length; j++) {
-  //       card.append("<input type='radio' name='question-" + i +
-  //       "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
-  //     }
-  //   }
-
-  //   card.append("<button id='done'>Done</button>");
-  // },
