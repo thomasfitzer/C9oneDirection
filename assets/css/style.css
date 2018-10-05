@@ -112,7 +112,7 @@ p {
 p{
   text-justify: auto;
   font: gray;
-  font-size: 24px;
+  font-size: 23px;
   text-indent: 50px;
   font-family: 'Crimson Text', serif;
 }
@@ -132,3 +132,6 @@ footer {
 .row-2-image {
     float: left;
 }
+#container {
+    color: var(--blue);
+  }
