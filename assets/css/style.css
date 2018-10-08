@@ -36,6 +36,7 @@ a {
       border-left: 1px solid lightgray;
       margin-top:4%;
       text-transform: uppercase;
+      white-space: nowrap;
       -webkit-border-image: 
       -webkit-gradient(linear, 0 100%, 0 0, from(gray), to(rgba(255, 255, 255, 1))) 1 10%;
     -webkit-border-image: 
@@ -135,3 +136,27 @@ footer {
 #container {
     color: var(--blue);
   }
+  .drug{
+      font-size: 25px;
+      color: red;
+      font-family: 'Times New Roman', Times, serif
+  }
+  #section-2 {
+      float: left;
+  }
+  #row-3-image {
+      float: left;
+  }
+  h1 {
+    text-justify: auto;
+  }
+  body { padding-top: 20px; }
+#myCarousel .nav a small {
+    display:block;
+}
+#myCarousel .nav {
+	background:#eee;
+}
+#myCarousel .nav a {
+    border-radius:0px;
+}
