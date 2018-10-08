@@ -3,20 +3,29 @@ $(document).ready(function () {
 
 
     // Current location request
-    // function getLocation () {
-        // if (navigator.geolocation) {
-            // navigator.geolocation.getCurrentPosition(position);
-        // } else {
-        // console.log("Geolocation not supported by this browser")
-        // };
-    // }
+    function getLocation() {
+            if (navigator.location) {  
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }  else { 
+            alert("Geolocation not supported by this browser")
+        };
+    }
+    function showPosition (position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        console.log(latitude);
+        console.log(longitude);
+    };
 
+
+    
 
 
     $(".input-group-btn").on("click", function (event) {
         event.preventDefault();
         clearResults();
-
+       
+        
         var userSearch = $(".form-control").val().trim();
 
 
