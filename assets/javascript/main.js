@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 
 
-    $(".input-group-btn").on("click", function () {
+    $(".input-group-btn").on("click", function (event) {
         event.preventDefault();
         clearResults();
 
@@ -68,25 +68,22 @@ $(document).ready(function () {
                     "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
                     link + "' class='btn btn-primary'>Visit provider</a></div>");
 
-
-                colGuy.append(yelpDiv);
-                rowGuy.append(colGuy);
-                $("#dump-yelp-here").append(rowGuy);
+                    colGuy.append(yelpDiv);
+                    rowGuy.append(colGuy);
+                    $("#dump-yelp-here").append(rowGuy);
             }
 
           });
             
-          function clearResults() {
-              $("#dump-yelp-here").empty();
-              $(".table tbody").empty();
-          }
+        
 
 
 
-    $(".input-group-btn").on("click", function (event) {
+    
         var userSearch = $(".form-control").val().trim()
         queryURL = "https://api.fda.gov/drug/event.json?api_key=2hkdwDIItI5PuX5ixDLDGLU0jQNuXzufK2JiOHIk&search=patient.reaction.reactionmeddrapt:" + userSearch + "&limit=1"
 
+        console.log("hi")
         console.log(userSearch, "this is the second user serach")
 
 
@@ -131,7 +128,10 @@ $(document).ready(function () {
 
 
         });
-    });
-
+    
+        function clearResults() {
+            $("#dump-yelp-here").empty();
+            $(".table tbody").empty();
+        }
     });
 })

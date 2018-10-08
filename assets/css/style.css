@@ -136,6 +136,11 @@ footer {
 #container {
     color: var(--blue);
   }
+  .drug{
+      font-size: 25px;
+      color: red;
+      font-family: 'Times New Roman', Times, serif
+  }
   #section-2 {
       float: left;
   }
