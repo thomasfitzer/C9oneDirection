@@ -126,6 +126,7 @@ $(document).ready(function() {
 
                     row.append(td1, td2,symptom);
                     $(".table tbody").append(row);
+                    
                 }
                 
                 
