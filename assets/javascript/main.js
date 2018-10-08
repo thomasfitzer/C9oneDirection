@@ -2,50 +2,6 @@
 $(document).ready(function () {
 
 
-   
-    function onPositionReceived(position) {
-        console.log(position);
-    };
-
-    function locationNotReceived(positionError) {
-        console.log(positionError);
-    };
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
-    };
-
-   
-
-  
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //     latitude = position.coords.latitude;
-    //     longitude = position.coords.longitude;
-        
-    // });
-
-    
-   
-
-    // // Current location request
-    // function getLocation() {
-    //         if (navigator.location) {  
-    //             navigator.geolocation.getCurrentPosition(showPosition);
-    //         }  else { 
-    //         alert("Geolocation not supported by this browser")
-    //     };
-    // }
-    // function showPosition (position) {
-    //     var latitude = position.coords.latitude;
-    //     var longitude = position.coords.longitude;
-    //     console.log(latitude);
-    //     console.log(longitude);
-    // };
-
-
-    
-
-
     $(".input-group-btn").on("click", function (event) {
         event.preventDefault();
         clearResults();
@@ -53,8 +9,22 @@ $(document).ready(function () {
         
         var userSearch = $(".form-control").val().trim();
 
+        function onPositionReceived(position) {
+            console.log(position);
+        };
+    
+        function locationNotReceived(positionError) {
+            console.log(positionError);
+        };
+    
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
+            var latitude = onPositionReceived.coords.latitude;
+            var longitude = onPositionReceived.coords.longitude;
+            
+        };
 
-        // console.log(userSearch);
+        
 
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
