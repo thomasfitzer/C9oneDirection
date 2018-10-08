@@ -1,3 +1,4 @@
+<<<<<<< HEAD:assets/javascript/whackamole.js
   const holes = document.querySelectorAll('.hole');
   const scoreBoard = document.querySelector('.score');
   const moles = document.querySelectorAll('.mole');
@@ -8,30 +9,41 @@
   var intervalId;
   
   function randomTime(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
-  }
-  
+=======
+const holes = document.querySelectorAll('.hole');
+const scoreBoard = document.querySelector('.score');
+const moles = document.querySelectorAll('.mole');
+let lastHole;
+let timeUp = false;
+let score = 0;
 
-  function randomHole(holes) {
+function randomTime(min, max) {
+>>>>>>> d4297985d53903c83cb40db44510ab18a2bf7448:whackamole.js
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+
+function randomHole(holes) {
     const idx = Math.floor(Math.random() * holes.length);
     const hole = holes[idx];
     if (hole === lastHole) {
-      console.log('Same one!');
-      return randomHole(holes);
+        console.log('Same one!');
+        return randomHole(holes);
     }
     lastHole = hole;
     return hole;
-  }
+}
 
 
-  function peep() {
+function peep() {
     const time = randomTime(600, 1150);
     const hole = randomHole(holes);
     hole.classList.add('up');
     setTimeout(() => {
-      hole.classList.remove('up');
-      if (!timeUp) peep();
+        hole.classList.remove('up');
+        if (!timeUp) peep();
     }, time);
+<<<<<<< HEAD:assets/javascript/whackamole.js
   }
   document.getElementById("startbutton").addEventListener("click", startGame);
   function startGame() {
@@ -91,11 +103,29 @@
   
   function bonk(e) {
     if(!e.isTrusted) return; // cheater!
+=======
+}
+document.getElementById("startbutton").addEventListener("click", startGame, startTimer);
+function startGame() {
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    score = 0;
+
+    peep();
+    setTimeout(() => timeUp = true, 10000)
+}
+
+
+
+
+function bonk(e) {
+    if (!e.isTrusted) return; // cheater!
+>>>>>>> d4297985d53903c83cb40db44510ab18a2bf7448:whackamole.js
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
-  }
-  moles.forEach(mole => mole.addEventListener('click', bonk));
+}
+moles.forEach(mole => mole.addEventListener('click', bonk));
 
   
 
