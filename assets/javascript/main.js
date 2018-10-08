@@ -20,8 +20,22 @@ $(document).ready(function () {
 
         var userSearch = $(".form-control").val().trim();
 
+        function onPositionReceived(position) {
+            console.log(position);
+        };
+    
+        function locationNotReceived(positionError) {
+            console.log(positionError);
+        };
+    
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
+            var latitude = onPositionReceived.coords.latitude;
+            var longitude = onPositionReceived.coords.longitude;
+            
+        };
 
-        // console.log(userSearch);
+        
 
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
