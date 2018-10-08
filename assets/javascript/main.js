@@ -4,11 +4,11 @@ $(document).ready(function () {
 
     // Current location request
     // function getLocation () {
-        // if (navigator.geolocation) {
-            // navigator.geolocation.getCurrentPosition(position);
-        // } else {
-        // console.log("Geolocation not supported by this browser")
-        // };
+    // if (navigator.geolocation) {
+    // navigator.geolocation.getCurrentPosition(position);
+    // } else {
+    // console.log("Geolocation not supported by this browser")
+    // };
     // }
 
 
@@ -16,11 +16,26 @@ $(document).ready(function () {
     $(".input-group-btn").on("click", function (event) {
         event.preventDefault();
         clearResults();
+        resultslink ();
 
         var userSearch = $(".form-control").val().trim();
 
+        function onPositionReceived(position) {
+            console.log(position);
+        };
+    
+        function locationNotReceived(positionError) {
+            console.log(positionError);
+        };
+    
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
+            var latitude = onPositionReceived.coords.latitude;
+            var longitude = onPositionReceived.coords.longitude;
+            
+        };
 
-        // console.log(userSearch);
+        
 
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
@@ -42,10 +57,10 @@ $(document).ready(function () {
                 //   "Postman-Token": "24057fea-5aa1-434c-a8b8-b01e31ead0da"
                 "Access-Control-Allow-Origin": "*"
             }
-          }
-            
-          // AJAX request Yelp
-          $.ajax(yelpSearch).done(function (response) {
+        }
+
+        // AJAX request Yelp
+        $.ajax(yelpSearch).done(function (response) {
             // console.log(response);
             var response = response.businesses;
 
@@ -68,18 +83,19 @@ $(document).ready(function () {
                     "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
                     link + "' class='btn btn-primary'>Visit provider</a></div>");
 
-                    colGuy.append(yelpDiv);
-                    rowGuy.append(colGuy);
-                    $("#dump-yelp-here").append(rowGuy);
+                colGuy.append(yelpDiv);
+                rowGuy.append(colGuy);
+                $("#dump-yelp-here").append(rowGuy);
             }
 
-          });
-            
-        
+
+        });
 
 
 
-    
+
+
+
         var userSearch = $(".form-control").val().trim()
         queryURL = "https://api.fda.gov/drug/event.json?api_key=2hkdwDIItI5PuX5ixDLDGLU0jQNuXzufK2JiOHIk&search=patient.reaction.reactionmeddrapt:" + userSearch + "&limit=1"
 
@@ -104,8 +120,8 @@ $(document).ready(function () {
                     $("#form-control").text(name);
                     let reactions = response[i].patient.reaction;
                     let reactionRow = $("<tr>");
-                    
-            for (k = 0; k <reactions.length; k++){
+
+                    for (k = 0; k < reactions.length; k++) {
                         var symptom = reactions[k].reactionmeddrapt;
                         // console.log(symptom, "symptom");
                         var td3 = $('<td>').html(symptom);
@@ -129,7 +145,7 @@ $(document).ready(function () {
 
 
         });
-    
+
         function clearResults() {
             $("#dump-yelp-here").empty();
             $(".table tbody").empty();
@@ -163,4 +179,8 @@ $(document).ready(function () {
           });
         
     });
+    function resultslink () {
+        window.location.hash = "";
+        window.location.hash = "#results";
+    }
 })
