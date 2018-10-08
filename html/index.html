@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project One Direction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src = "assets/javascript/main.js"></script>
+    <script src = "../assets/javascript/main.js"></script>
 
 </head>
 
@@ -20,7 +20,7 @@
     <div class="navbar-top-gradient"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
-        <img width="12%" height="12%" src="assets/images/pod.png">
+        <a href="index.html"><img width="168" height="105" src="../assets/images/pod.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,24 +48,24 @@
                 <div id="transition" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="assets/images/title-fade-in1.png" alt="First slide">
+                            <img class="d-block w-100" src="../assets/images/title-fade-in1.png" alt="First slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/images/title-fade-in2.png" alt="Second slide">
+                            <img class="d-block w-100" src="../assets/images/title-fade-in2.png" alt="Second slide">
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="assets/images/title-fade-in3.png" alt="Third slide">
+                            <img class="d-block w-100" src="../assets/images/title-fade-in3.png" alt="Third slide">
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Search bar -->
             <div class="input-group" id="center">
-                <input class="form-control" type="text" name="search" placeholder=" What can we help you find?"
+                <input class="form-control" type="text" name="search" placeholder="What can we help you find?"
                     required />
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="submit">
-                        <i class="glyphicon glyphicon-search" aria-hidden="true" id="search-resources"></i> Search
+                        <i class="glyphicon glyphicon-search" aria-hidden="true" id="search-resources"></i>Search
                     </button>
                 </span>
             </div>
@@ -78,7 +78,7 @@
         <div class="jumbotron" id="jumbotron">
             <div class="three-links">
                 <div class="link-1">
-                    <a href="doctors.html" class="badge badge-success"> Doctors</a>
+                    <a href="doctors.html" class="badge badge-success">Doctors</a>
                 </div>
                 <div class="link-2">
                     <a href="treatments.html" class="badge badge-success">Explore Treatments</a>
@@ -91,6 +91,20 @@
     </div>
     </div>
     </div>
+    <!-- Spot to dump info & drug facts from serach -->
+    <div class="container">
+        <div class="row">
+            <div class='col-lg-12'>
+                <table class ="table">
+                    <tbody class="table tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>    
+    </div>
+    <!-- Spot to dump Yelp local providers from search -->
+    <div class="container" id="dump-yelp-here"></div>
 
      <div class="container-fluid bg-dark text-white">
          <div class="container">
@@ -110,7 +124,7 @@
     <div class="container-fluid">
         <div class="container">
             <div class="jumbotron" id="jumbotron">
-                <img class="row-2-image" src="assets/images/mental-health-image.png">
+                <img class="row-2-image" src="../assets/images/mental-health-image.png">
                 <p>
                     It is more than just stigma that affects those with mental illness – it is discrimination. The National Alliance on Mental
                     Illness uses the definition of stigma as a “mark of disgrace, or a negative stereotype.” People with mental illness experience discrimination
@@ -132,11 +146,7 @@
                 </span>
             </div>
         </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        
             crossorigin="anonymous"></script>
 </body>
 
