@@ -1,8 +1,15 @@
 
 $(document).ready(function () {
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-    })
+
+    // Current location request
+    // function getLocation () {
+        // if (navigator.geolocation) {
+            // navigator.geolocation.getCurrentPosition(position);
+        // } else {
+        // console.log("Geolocation not supported by this browser")
+        // };
+    // }
 
 
 
@@ -13,7 +20,7 @@ $(document).ready(function () {
         var userSearch = $(".form-control").val().trim();
 
 
-        console.log(userSearch);
+        // console.log(userSearch);
 
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
@@ -25,8 +32,7 @@ $(document).ready(function () {
         var yelpSearch = {
             // "async": true,
             "crossDomain": true,
-            "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&latitude=" + currentLatitude + "&longitude=" +
-                currentLongitude + "&limit=10",
+            "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&location=Minneapolis&limit=10",
             "method": "GET",
 
             "headers": {
@@ -36,11 +42,11 @@ $(document).ready(function () {
                 //   "Postman-Token": "24057fea-5aa1-434c-a8b8-b01e31ead0da"
                 "Access-Control-Allow-Origin": "*"
             }
-        }
-
-        // AJAX request Yelp
-        $.ajax(yelpSearch).done(function (response) {
-            console.log(response);
+          }
+            
+          // AJAX request Yelp
+          $.ajax(yelpSearch).done(function (response) {
+            // console.log(response);
             var response = response.businesses;
 
             // Results loop
@@ -65,17 +71,15 @@ $(document).ready(function () {
 
                 colGuy.append(yelpDiv);
                 rowGuy.append(colGuy);
-                $("#dump-here").append(rowGuy);
+                $("#dump-yelp-here").append(rowGuy);
             }
 
-        });
-
-        function clearResults() {
-            $("#dump-here").empty();
-        }
-
-
-    });
+          });
+            
+          function clearResults() {
+              $("#dump-yelp-here").empty();
+              $(".table tbody").empty();
+          }
 
 
 
@@ -83,7 +87,7 @@ $(document).ready(function () {
         var userSearch = $(".form-control").val().trim()
         queryURL = "https://api.fda.gov/drug/event.json?api_key=2hkdwDIItI5PuX5ixDLDGLU0jQNuXzufK2JiOHIk&search=patient.reaction.reactionmeddrapt:" + userSearch + "&limit=1"
 
-        // console.log("hi")
+        console.log(userSearch, "this is the second user serach")
 
 
         $.ajax({
@@ -93,8 +97,8 @@ $(document).ready(function () {
             var response = response.results;
 
             for (i = 0; i < response.length; i++) {
-                console.log(response)
-                console.log(response[i].patient.drug)
+                console.log(response, "response")
+                console.log(response[i].patient.drug, "patient drug")
                 let result = response[i].patient.drug
 
                 for (j = 0; j < result.length; j++) {
@@ -103,10 +107,10 @@ $(document).ready(function () {
                     $("#form-control").text(name);
                     let reactions = response[i].patient.reaction;
                     let reactionRow = $("<tr>");
-
-                    for (k = 0; k < reactions.length; k++) {
-                        var symptom = reactions[k].reactionmeddrapt
-                        console.log(symptom)
+                    
+            for (k = 0; k <reactions.length; k++){
+                        var symptom = reactions[k].reactionmeddrapt;
+                        console.log(symptom, "symptom");
                         var td3 = $('<td>').html(symptom);
                         reactionRow.append(td3);
                         $(".table tbody").append(row);
@@ -129,5 +133,5 @@ $(document).ready(function () {
         });
     });
 
-});
-
+    });
+})
