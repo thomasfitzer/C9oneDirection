@@ -51,7 +51,7 @@ $(document).ready(function () {
 
             // Results loop
             for (i = 0; i < response.length; i++) {
-                console.log(response[i].name);
+                // console.log(response[i].name);
                 var rowGuy = $("<div class='row'>");
                 var colGuy = $("<div class='col-lg-12'>");
                 var yelpDiv = $("<div class='card'>");
@@ -83,8 +83,8 @@ $(document).ready(function () {
         var userSearch = $(".form-control").val().trim()
         queryURL = "https://api.fda.gov/drug/event.json?api_key=2hkdwDIItI5PuX5ixDLDGLU0jQNuXzufK2JiOHIk&search=patient.reaction.reactionmeddrapt:" + userSearch + "&limit=1"
 
-        console.log("hi")
-        console.log(userSearch, "this is the second user serach")
+        // console.log("hi")
+        // console.log(userSearch, "this is the second user serach")
 
 
         $.ajax({
@@ -94,8 +94,8 @@ $(document).ready(function () {
             var response = response.results;
 
             for (i = 0; i < response.length; i++) {
-                console.log(response, "response")
-                console.log(response[i].patient.drug, "patient drug")
+                // console.log(response, "response")
+                // console.log(response[i].patient.drug, "patient drug")
                 let result = response[i].patient.drug
 
                 for (j = 0; j < result.length; j++) {
@@ -107,7 +107,7 @@ $(document).ready(function () {
                     
             for (k = 0; k <reactions.length; k++){
                         var symptom = reactions[k].reactionmeddrapt;
-                        console.log(symptom, "symptom");
+                        // console.log(symptom, "symptom");
                         var td3 = $('<td>').html(symptom);
                         reactionRow.append(td3);
                         $(".table tbody").append(row);
@@ -134,5 +134,33 @@ $(document).ready(function () {
             $("#dump-yelp-here").empty();
             $(".table tbody").empty();
         }
+        
+        var word_id = $(".form-control").val().trim();
+
+        const source_lang = 'en';
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://od-api.oxforddictionaries.com/api/v1/entries/"+source_lang+"/" + word_id,
+            "method": "GET",
+            "headers": {
+              "app_id": "b89ebb75",
+              "app_key": "c30b9aa90fe3af2223ed4d70da7bf75e",
+              "Cache-Control": "no-cache",
+              "Postman-Token": "e42a6e83-4019-4c34-954c-98818ae3bf2d"
+            }
+          }
+          
+          $.ajax(settings).done(function (response) {
+            var definitions = response.results[0].lexicalEntries[0].entries[0].senses;
+             for (let d = 0; d < definitions.length; d++) {
+                 let resultDef = definitions[d].definitions[0];
+                // console.log(resultDef)
+                //appen here
+             }
+            //   console.log("hihihihihihihihihihi")
+            // console.log(definitions);
+          });
+        
     });
 })
