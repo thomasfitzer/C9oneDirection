@@ -1,10 +1,14 @@
 
 $(document).ready(function () {
 
+    $(".drug").hide();
+
+
     $(".input-group-btn").on("click", function (event) {
         event.preventDefault();
+        resultslink();
         clearResults();
-        resultslink ();
+        $(".drug").show();
 
         var userSearch = $(".form-control").val().trim();
 
@@ -33,11 +37,11 @@ $(document).ready(function () {
             console.log(longitude);
 
             // Yelp API
-            var yelpSearch = {
+            var yelpSearch = {  
                 // "async": true,
                 "crossDomain": true,
-                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&latitude=" + latitude + "&longitude=" 
-                    + longitude + "&limit=10",
+                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh,physicians,addictionmedicine,familydr,psychiatrists,pharmacy,rehabiliation_center&latitude=" + latitude + "&longitude=" 
+                    + longitude + "&limit=10&radius=40000",
                 "method": "GET",
 
                 "headers": {
@@ -68,8 +72,8 @@ $(document).ready(function () {
                     var link = response[i].url;
 
                     // Appending results
-                    yelpDiv.append("<div class='card-header'>" + name +
-                        "</div><div class='card-body'><img width='250' height='250' src='" + yelpImage +
+                    yelpDiv.append("<div class='card-header'><h4>" + name +
+                        "</h4></div><div class='card-body'><img width='250' height='250' src='" + yelpImage +
                         "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
                         link + "' class='btn btn-primary'>Visit provider</a></div>");
 
@@ -124,7 +128,14 @@ $(document).ready(function () {
                     var td2 = $('<td>').html(product);
                     var td3 = $('<td>').html(symptom);
 
-                    row.append(td1, td2, symptom);
+
+                    td1.addClass("text-center");
+                    td2.addClass("text-center");
+                    td3.addClass("text-center");
+                    row.addClass("text-center");
+                    
+
+                    row.append(td1, td2, td3);
                     $(".table tbody").append(row);
                     
                 }

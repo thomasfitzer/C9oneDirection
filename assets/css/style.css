@@ -138,8 +138,9 @@ footer {
   }
   .drug{
       font-size: 25px;
-      color: red;
-      font-family: 'Times New Roman', Times, serif
+      color: black;
+      font-family: 'Times New Roman', Times, serif;
+      text-align: center;
   }
   #section-2 {
       float: left;
