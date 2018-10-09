@@ -66,11 +66,11 @@ a {
     border-image:
       linear-gradient(to top, lightgray, rgb(255, 255, 255)) 1 10%;
   }
-  .carousel-item {
+  /* .carousel-item {
     opacity: 0;
     transition-duration: 1.6s!important;
     transition-property: opacity;
-}
+} */
 
 .three-links {
     margin: auto;
@@ -149,6 +149,7 @@ footer {
   }
   h1 {
     text-justify: auto;
+    text-align: center;
   }
   body { padding-top: 20px; }
 #myCarousel .nav a small {
@@ -190,3 +191,7 @@ footer {
     max-height: 250px;
     overflow:hidden;
 }
+#homeo {
+    text-shadow:2px 2px #ff0000;
+}
+
