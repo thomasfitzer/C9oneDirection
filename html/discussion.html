@@ -1,48 +1,81 @@
-<head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Project One Direction</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" /> -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-            crossorigin="anonymous"> -->
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-        <!-- <script src="../assets/javascript/main.js"></script> -->
-        <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
-        <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    
-    
-    </head>
-<div class="container-fluid bg-white">
-        <div class="jumbotron bg-white">
-            <h1 style: "text-shadow:2px 2px #ff0000";>Homeopathic Remedies</h1>
+<html>
+    <head>
+        <title>Packet Code Chat Room</title>
+        <link rel = "stylesheet" href = "../assets/css/chatstlye.css">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+console.log("hello");
+  var config = {
+    apiKey: "AIzaSyB8I42KHR3l7R1ZkMXC7BCHABMXJimEr6s",
+    authDomain: "project-one-direction.firebaseapp.com",
+    databaseURL: "https://project-one-direction.firebaseio.com",
+    projectId: "project-one-direction",
+    storageBucket: "project-one-direction.appspot.com",
+    messagingSenderId: "67112507944"
+  };
+  firebase.initializeApp(config);
 
-            <div id="center" class="col-md-8 col-md-offset-4">
-                <div class="row form">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="../assets/images/ignatia.png" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../assets/images/natmur.png" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="../assets/images/cbd.png" alt="Third slide">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
+
+            var name = "";
+            
+            
+            $(document).ready(function(){
+                
+                firebase.database().ref('/chat/').on('child_added', function(snapshot){
+                    var data = "<div id = 'm'><p class = 'name'>" + snapshot.child('name').val() + "</p><p class = 'message'>" + snapshot.child('message').val() + "</p></div>";
+
+                    $("#messages").html($("#messages").html() + data);
+                });
+                
+                $("#name_submit").on('click', function(){
+                    name = $("#name").val();
+                    $("#name_prompt_parent").fadeOut();
+                    
+                    firebase.database().ref('/chat/').push ({
+                        name: "",
+                        message: "<i>" + name + " joined the chatroom</i>"
+                    });
+                }); 
+                
+                $("#send_button").on('click', function(){
+                    var mess = $("#msg").val();
+                    
+                    firebase.database().ref('/chat/' + Date.now()).set({
+                        name: name,
+                        message: mess
+                    });
+                    
+                    $("#msg").val("");
+                });
+                
+            });
+            
+        </script>
+    </head>
+    
+    <body>
+        <div id = "name_prompt_parent">
+            <div id = "name_prompt">
+                <p class = "title">Hey There ! Why don't you say us your name ?</p>
+                <input type = "text" id = "name" class = "form-control">
+                <br>
+                <button id = "name_submit" class = "btn btn-success">Submit</button>
             </div>
         </div>
+        
+        <div id = "chatroom">
+            <div id = "messages">
+                
+            </div>
+            <div id = "input">
+                <textarea id = "msg" class = "form-control" id = "message"></textarea>
+                <button id = "send_button" class = "btn btn-primary">Send</button>
+            </div>
         </div>
-        <hr>
+        
+    
+    </body>
+</html>
