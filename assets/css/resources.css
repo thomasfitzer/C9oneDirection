@@ -161,3 +161,8 @@ footer {
 #container {
     color: var(--blue);
   }
+
+  a:hover {
+    color: rgba(0, 128, 0, 0.61);
+    text-decoration: underline;
+}
