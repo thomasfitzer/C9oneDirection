@@ -11,8 +11,8 @@
         crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/javascript/main.js"></script>
-    
-   
+
+
 
 </head>
 
@@ -22,9 +22,11 @@
     <div class="navbar-top-gradient"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
-        <a href="index.html"><img width="168" height="105" src="../assets/images/pod.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="index.html">
+            <img width="168" height="105" src="../assets/images/pod.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -63,12 +65,11 @@
             </div>
             <!-- Search bar -->
             <div class="input-group" id="center">
-                <input class="form-control" type="text" name="search" placeholder="What can we help you find?"
-                    required />
+                <input class="form-control" type="text" name="search" placeholder="What can we help you find?" required />
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="submit">
                         <i class="glyphicon glyphicon-search" aria-hidden="true" id="search-resources"></i>Search
-                    </button>
+                    </button></a>
                 </span>
             </div>
         </div>
@@ -93,30 +94,7 @@
     </div>
     </div>
     </div>
-    <!-- Spot to dump info & drug facts from serach -->
-    <div class="drug">
-            <h2>Medication Information</h2>
-        <div class="row drug">
-            <div class='col-lg-12'>
-                <table class ="table">
-                        <thead>
-                                <tr>
-                                  
-                                  <th scope="col">Medication</th>
-                                  <th scope="col">Manufactuer</th>
-                                  <th scope="col">Reactions</th>
-                                </tr>
-                              </thead>
-                    <tbody class="table tbody">
-
-                    </tbody>
-                </table>
-            </div>
-        </div>    
-    </div>
-    <!-- Spot to dump Yelp local providers from search -->
-    <div class="container" id="dump-yelp-here"></div>
-
+  
     <div class="container-fluid bg-dark text-white">
         <div class="container">
             <div class="jumbotron bg-dark text-white" id="jumbotron-statement">
@@ -151,22 +129,44 @@
 
 
         </div>
-        
 
-        <hr>
-        <div class="container">
-            <div class="jumbotron" id="jumbotron">
-                <img class="row-3-image" src="../assets/images/find-doctor.png">
-                <h1>Compare all types of doctors</h1>
-                <p>
-                    <a href="doctors.html">Find the doctor that's right for you</a>
-                </p>
+                    </tbody>
+                </table>
             </div>
- 
-        </div>
-
+        </div>    
+    </div>
+    <!-- Spot to dump Yelp local providers from search -->
+    <div class="container" id="dump-yelp-here"></div>
+        <hr>
+       
 
     </div>
+      <!-- Spot to dump info & drug facts from serach -->
+      <div id="results"></div>
+      <div class="drug">
+        <h2>Medication Information</h2>
+        <div class="row drug">
+            <div class='col-lg-12'>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th scope="col">Medication</th>
+                            <th scope="col">Manufactuer</th>
+                            <th scope="col">Reactions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Spot to dump Yelp local providers from search -->
+    <div class="container" id="dump-yelp-here"></div>
+
+   
 
     <!-- // Begin Footer -->
     <footer>
@@ -176,7 +176,7 @@
             </span>
         </div>
     </footer>
-    
+
 
 </body>
 
