@@ -1,18 +1,6 @@
 
 $(document).ready(function () {
 
-
-    // Current location request
-    // function getLocation () {
-    // if (navigator.geolocation) {
-    // navigator.geolocation.getCurrentPosition(position);
-    // } else {
-    // console.log("Geolocation not supported by this browser")
-    // };
-    // }
-
-
-
     $(".input-group-btn").on("click", function (event) {
         event.preventDefault();
         clearResults();
@@ -20,78 +8,80 @@ $(document).ready(function () {
 
         var userSearch = $(".form-control").val().trim();
 
-        // function onPositionReceived(position) {
-        //     console.log(position);
-        // };
-    
-        // function locationNotReceived(positionError) {
-        //     console.log(positionError);
-        // };
-    
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
-        //     var latitude = onPositionReceived.coords.latitude;
-        //     var longitude = onPositionReceived.coords.longitude;
-            
-        // };
+        // If location is not received, timeout error
+        function locationNotReceived(positionError) {
+            console.log(positionError);
+        };
+        // Checking for geolocation ability in browser 
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, locationNotReceived, {timeout: 20000});    
+        };
 
-        
 
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
                 options.url = 'https://ca329482.herokuapp.com/' + options.url;
             }
         });
+        
+        // Position function & Yelp API
+        function showPosition(position) {
+            var latitude = position.coords.latitude
+            var longitude = position.coords.longitude 
+            
+            console.log(latitude);
+            console.log(longitude);
 
-        // Yelp API
-        var yelpSearch = {
-            // "async": true,
-            "crossDomain": true,
-            "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&location=Minneapolis&limit=10",
-            "method": "GET",
+            // Yelp API
+            var yelpSearch = {
+                // "async": true,
+                "crossDomain": true,
+                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&latitude=" + latitude + "&longitude=" 
+                    + longitude + "&limit=10",
+                "method": "GET",
 
-            "headers": {
-                "Authorization": "Bearer VWbhyLltz59Mh602g6qzpH1spLdhVXPxvoh5GtKU-DmX2fEpT74efdY49dc2HmiDzq_C6X7Y1TyyouOP_phphh8Kz6VHV2iv105lfj85vLTNUBxpsCjURH3YRDe2W3Yx",
-                //   "Content-Type": "application/json"
-                //   "Cache-Control": "no-cache",
-                //   "Postman-Token": "24057fea-5aa1-434c-a8b8-b01e31ead0da"
-                "Access-Control-Allow-Origin": "*"
+                "headers": {
+                    "Authorization": "Bearer VWbhyLltz59Mh602g6qzpH1spLdhVXPxvoh5GtKU-DmX2fEpT74efdY49dc2HmiDzq_C6X7Y1TyyouOP_phphh8Kz6VHV2iv105lfj85vLTNUBxpsCjURH3YRDe2W3Yx",
+                    //   "Content-Type": "application/json"
+                    //   "Cache-Control": "no-cache",
+                    //   "Postman-Token": "24057fea-5aa1-434c-a8b8-b01e31ead0da"
+                    "Access-Control-Allow-Origin": "*"
+                }
             }
-        }
+            
+            // AJAX request Yelp
+            $.ajax(yelpSearch).done(function (response) {
+                // console.log(response);
+                var response = response.businesses;
 
-        // AJAX request Yelp
-        $.ajax(yelpSearch).done(function (response) {
-            // console.log(response);
-            var response = response.businesses;
+                // Results loop
+                for (i = 0; i < response.length; i++) {
+                    // console.log(response[i].name);
+                    var rowGuy = $("<div class='row'>");
+                    var colGuy = $("<div class='col-lg-12'>");
+                    var yelpDiv = $("<div class='card'>");
+                    var yelpImage = response[i].image_url;
 
-            // Results loop
-            for (i = 0; i < response.length; i++) {
-                // console.log(response[i].name);
-                var rowGuy = $("<div class='row'>");
-                var colGuy = $("<div class='col-lg-12'>");
-                var yelpDiv = $("<div class='card'>");
-                var yelpImage = response[i].image_url;
+                    var name = response[i].name;
+                    var location = response[i].location.address1;
+                    var phone = response[i].display_phone;
+                    var link = response[i].url;
 
-                var name = response[i].name;
-                var location = response[i].location.address1;
-                var phone = response[i].display_phone;
-                var link = response[i].url;
+                    // Appending results
+                    yelpDiv.append("<div class='card-header'>" + name +
+                        "</div><div class='card-body'><img width='250' height='250' src='" + yelpImage +
+                        "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
+                        link + "' class='btn btn-primary'>Visit provider</a></div>");
 
-                // Appending results
-                yelpDiv.append("<div class='card-header'>" + name +
-                    "</div><div class='card-body'><img width='250' height='250' src='" + yelpImage +
-                    "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
-                    link + "' class='btn btn-primary'>Visit provider</a></div>");
-
-                colGuy.append(yelpDiv);
-                rowGuy.append(colGuy);
-                $("#dump-yelp-here").append(rowGuy);
-            }
-
-
-        });
+                    colGuy.append(yelpDiv);
+                    rowGuy.append(colGuy);
+                    $("#dump-yelp-here").append(rowGuy);
+                }
 
 
+            });
+
+    };
 
 
 
@@ -150,14 +140,14 @@ $(document).ready(function () {
             $("#dump-yelp-here").empty();
             $(".table tbody").empty();
         }
-        
-        var word_id = $(".form-control").val().trim();
+        // was var word_id
+        var userSearch = $(".form-control").val().trim();
 
         const source_lang = 'en';
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://od-api.oxforddictionaries.com/api/v1/entries/"+source_lang+"/" + word_id,
+            "url": "https://od-api.oxforddictionaries.com/api/v1/entries/"+source_lang+"/" + userSearch,
             "method": "GET",
             "headers": {
               "app_id": "b89ebb75",
@@ -179,8 +169,8 @@ $(document).ready(function () {
           });
         
     });
-    function resultslink () {
-        window.location.hash = "";
-        window.location.hash = "#results";
-    }
+        function resultslink () {
+            window.location.hash = "";
+            window.location.hash = "#results";
+        }
 })
