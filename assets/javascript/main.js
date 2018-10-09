@@ -40,8 +40,8 @@ $(document).ready(function () {
             var yelpSearch = {  
                 // "async": true,
                 "crossDomain": true,
-                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&latitude=" + latitude + "&longitude=" 
-                    + longitude + "&limit=10",
+                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh,physicians,addictionmedicine,familydr,psychiatrists,pharmacy,rehabiliation_center&latitude=" + latitude + "&longitude=" 
+                    + longitude + "&limit=10&radius=40000",
                 "method": "GET",
 
                 "headers": {
