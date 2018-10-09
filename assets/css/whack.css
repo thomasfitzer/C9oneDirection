@@ -64,11 +64,7 @@ html {
   
   .hole:after {
     display: block;
-<<<<<<< HEAD
     background: url(../images/pill\ bottle.jpg) bottom center no-repeat;
-=======
-    background: url("assets/images/pill\ bottle.png") bottom center no-repeat;
->>>>>>> b247340389a146015579b9af852182d0f1c5cab0
     background-size: contain;
     content: '';
     width: 100%;
@@ -84,11 +80,7 @@ html {
   }
   
   .mole {
-<<<<<<< HEAD
     background: url(../images/crazy.jpg) bottom center no-repeat;
-=======
-    background: url('assets/images/crazy.png') bottom center no-repeat;
->>>>>>> b247340389a146015579b9af852182d0f1c5cab0
     background-size: 60%;
     position: absolute;
     top: 100%;
