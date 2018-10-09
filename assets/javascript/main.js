@@ -20,22 +20,17 @@ $(document).ready(function () {
 
         var userSearch = $(".form-control").val().trim();
 
-        // function onPositionReceived(position) {
-        //     console.log(position);
-        // };
-    
-        // function locationNotReceived(positionError) {
-        //     console.log(positionError);
-        // };
-    
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
-        //     var latitude = onPositionReceived.coords.latitude;
-        //     var longitude = onPositionReceived.coords.longitude;
-            
-        // };
-
         
+    
+        function locationNotReceived(positionError) {
+            console.log(positionError);
+        };
+    
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, locationNotReceived, {timeout: 20000});    
+        };
+
+      
 
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
@@ -43,11 +38,19 @@ $(document).ready(function () {
             }
         });
 
+        function showPosition(position) {
+            var latitude = position.coords.latitude
+            var longitude = position.coords.longitude 
+            
+            console.log(latitude);
+            console.log(longitude);
+
         // Yelp API
         var yelpSearch = {
             // "async": true,
             "crossDomain": true,
-            "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&location=Minneapolis&limit=10",
+            "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&latitude=" + latitude + "&longitude=" 
+                + longitude + "&limit=10",
             "method": "GET",
 
             "headers": {
@@ -58,7 +61,7 @@ $(document).ready(function () {
                 "Access-Control-Allow-Origin": "*"
             }
         }
-
+        
         // AJAX request Yelp
         $.ajax(yelpSearch).done(function (response) {
             // console.log(response);
@@ -91,7 +94,7 @@ $(document).ready(function () {
 
         });
 
-
+    };
 
 
 
@@ -179,8 +182,8 @@ $(document).ready(function () {
           });
         
     });
-    function resultslink () {
-        window.location.hash = "";
-        window.location.hash = "#results";
-    }
+        function resultslink () {
+            window.location.hash = "";
+            window.location.hash = "#results";
+        }
 })
