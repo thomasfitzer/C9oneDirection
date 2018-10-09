@@ -172,11 +172,14 @@ $(document).ready(function () {
             var definitions = response.results[0].lexicalEntries[0].entries[0].senses;
              for (let d = 0; d < definitions.length; d++) {
                  let resultDef = definitions[d].definitions[0];
-                // console.log(resultDef)
-                //appen here
+                    console.log(resultDef);
+                    var defineThis = $("<p>").text(resultDef);
+                    defineThis.addClass("p-2");
+                    defineThis.attr("id", "definitionResults")
+                    $("#defineHere").append(defineThis);
+
              }
-            //   console.log("hihihihihihihihihihi")
-            // console.log(definitions);
+            
           });
         
     });
