@@ -20,20 +20,20 @@ $(document).ready(function () {
 
         var userSearch = $(".form-control").val().trim();
 
-        function onPositionReceived(position) {
-            console.log(position);
-        };
+        // function onPositionReceived(position) {
+        //     console.log(position);
+        // };
     
-        function locationNotReceived(positionError) {
-            console.log(positionError);
-        };
+        // function locationNotReceived(positionError) {
+        //     console.log(positionError);
+        // };
     
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
-            var latitude = onPositionReceived.coords.latitude;
-            var longitude = onPositionReceived.coords.longitude;
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(onPositionReceived, locationNotReceived, {timeout: 20000});
+        //     var latitude = onPositionReceived.coords.latitude;
+        //     var longitude = onPositionReceived.coords.longitude;
             
-        };
+        // };
 
         
 
@@ -150,14 +150,14 @@ $(document).ready(function () {
             $("#dump-yelp-here").empty();
             $(".table tbody").empty();
         }
-        
-        var word_id = $(".form-control").val().trim();
+        // was var word_id
+        var userSearch = $(".form-control").val().trim();
 
         const source_lang = 'en';
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://od-api.oxforddictionaries.com/api/v1/entries/"+source_lang+"/" + word_id,
+            "url": "https://od-api.oxforddictionaries.com/api/v1/entries/"+source_lang+"/" + userSearch,
             "method": "GET",
             "headers": {
               "app_id": "b89ebb75",
