@@ -196,6 +196,10 @@ footer {
     text-shadow:2px 2px #ff0000;
 }
 
+h5 {
+    color:red;
+    text-align: center;
+}
 #definitionResults {
     font-size: 18px;
 }
