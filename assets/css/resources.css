@@ -1,132 +1,4 @@
-html {
-    box-sizing: border-box;
-    font-size: 10px;
-    background: #ffc600;
-  }
-  
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  
-  #gamebody {
-    padding: 0;
-    margin: 0;
-    font-family: 'Amatic SC', 'cursive';
-  }
-  
-  #headergame {
-    text-align: center;
-    font-size: 10rem;
-    line-height: 1;
-    margin-bottom: 0;
-    position: relative;
-    left: 30px;
-  }
-  
-  .score {
-    background: rgba(255,255,255,0.2);
-    padding: 0 3rem;
-    line-height: 1;
-    border-radius: 1rem;
-  }
 
-  #timer{
-    background: rgba(255,255,255,0.2);
-    width: 80px;
-    height: 40px;
-    font-family: 'Amatic SC', 'cursive';
-    font-size: 35px;
-    text-align: center;
-    z-index: 3;
-    position: relative;
-    float: left;
-    left: 637px;
-    
-  }
-  
-  .game {
-    width: 600px;
-    height: 450px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    position: relative;
-    top: 50px;
-  }
-  
-  .hole {
-    flex: 1 0 33.33%;
-    
-    position: relative;
-    top: 50px;
-    right: 120px;
-  }
-  
-  .hole:after {
-    display: block;
-<<<<<<< HEAD
-    background: url(../images/pill\ bottle.jpg) bottom center no-repeat;
-=======
-    background: url("assets/images/pill\ bottle.png") bottom center no-repeat;
->>>>>>> b247340389a146015579b9af852182d0f1c5cab0
-    background-size: contain;
-    content: '';
-    width: 100%;
-    height:200px;
-    position: relative;
-
-    z-index: 2;
-    margin: 30px 30px 30px 30px;
-    
-  }
-  #bottomrow{
-    z-index: 4;
-  }
-  
-  .mole {
-<<<<<<< HEAD
-    background: url(../images/crazy.jpg) bottom center no-repeat;
-=======
-    background: url('assets/images/crazy.png') bottom center no-repeat;
->>>>>>> b247340389a146015579b9af852182d0f1c5cab0
-    background-size: 60%;
-    position: absolute;
-    top: 100%;
-    width: 80%;
-    height: 80%;
-    transition:all 0.4s;
-    z-index: 1;
-    margin: auto;
-    left: 50px;
-    bottom: 475px;
-  }
-  
-  .hole.up .mole {
-    top: 0;
-  }
-
-  #startbutton{
-    font-family: 'Amatic SC', 'cursive';
-    position: relative;
-    left: 525px;
-    z-index: 5;
-    width: 80px;
-    height: 40px;
-    font-size: 30px;
-    float: left;
-  }
-
-  #resetbutton{
-    font-family: 'Amatic SC', 'cursive';
-    position: relative;
-    left: 750px;
-    z-index: 5;
-    width: 80px;
-    height: 40px;
-    font-size: 30px;
-    float: left;
-  }
-  
   #center {
     margin:auto;
 }
@@ -227,23 +99,49 @@ a {
     /* property values: name, duration, iteration, timing-function */
   animation: jiggle 0.5s infinite linear;
 }
-p {
-    background-color: white;
-}
+
 
 #container {
     width: 800px;
-    margin-inline-start: 25%;
-    margin-top: 75px;
-    margin-bottom: 0px;
+    font: lightgray;
+    font-size: 20px;
+    font-family: 'Crimson Text', serif;
+}
+
+header {
+    font-family: 'Crimson Text', serif;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+ul {
+    font: lightgray;
+    font-size: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: 'Crimson Text', serif;
+
 }
 p{
   text-justify: auto;
-  font: gray;
-  font-size: 23px;
+  font: lightgray;
+  font-size: 20px;
   text-indent: 50px;
+  margin-left: 15%;
+  margin-right: 15%;
   font-family: 'Crimson Text', serif;
 }
+
+.things-you-can-do-for-yourself {
+    font-size: 20px;
+    font-family: 'Crimson Text', serif;
+    list-style-position: inside;
+
+}
+
 #jumbotron-statement {
     text-align: center;
     margin: auto;
@@ -263,3 +161,8 @@ footer {
 #container {
     color: var(--blue);
   }
+
+  a:hover {
+    color: rgba(0, 128, 0, 0.61);
+    text-decoration: underline;
+}
