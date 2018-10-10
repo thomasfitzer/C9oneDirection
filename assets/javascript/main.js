@@ -40,8 +40,8 @@ $(document).ready(function () {
             var yelpSearch = {  
                 // "async": true,
                 "crossDomain": true,
-                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh&latitude=" + latitude + "&longitude=" 
-                    + longitude + "&limit=10",
+                "url": "https://api.yelp.com/v3/businesses/search?term=" + userSearch + "&categories=c_and_mh,physicians,addictionmedicine,familydr,psychiatrists,pharmacy,rehabiliation_center&latitude=" + latitude + "&longitude=" 
+                    + longitude + "&limit=10&radius=40000",
                 "method": "GET",
 
                 "headers": {
@@ -172,11 +172,14 @@ $(document).ready(function () {
             var definitions = response.results[0].lexicalEntries[0].entries[0].senses;
              for (let d = 0; d < definitions.length; d++) {
                  let resultDef = definitions[d].definitions[0];
-                // console.log(resultDef)
-                //appen here
+                    console.log(resultDef);
+                    var defineThis = $("<p>").text(resultDef);
+                    defineThis.addClass("p-2");
+                    defineThis.attr("id", "definitionResults")
+                    $("#defineHere").append(defineThis);
+
              }
-            //   console.log("hihihihihihihihihihi")
-            // console.log(definitions);
+            
           });
         
     });
