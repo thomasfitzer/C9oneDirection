@@ -1,4 +1,8 @@
-
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    background: #ffc600;
+  }
   
   *, *:before, *:after {
     box-sizing: inherit;
@@ -12,22 +16,33 @@
   
   #headergame {
     text-align: center;
-    font-size: 65px;
+    font-size: 10rem;
     line-height: 1;
     margin-bottom: 0;
     position: relative;
-    left: -75px;
-    top: 30px;
+    left: 30px;
   }
   
   .score {
     background: rgba(255,255,255,0.2);
-    padding: 0 2rem;
+    padding: 0 3rem;
     line-height: 1;
     border-radius: 1rem;
   }
 
- 
+  #timer{
+    background: rgba(255,255,255,0.2);
+    width: 80px;
+    height: 40px;
+    font-family: 'Amatic SC', 'cursive';
+    font-size: 35px;
+    text-align: center;
+    z-index: 3;
+    position: relative;
+    float: left;
+    left: 637px;
+    
+  }
   
   .game {
     width: 600px;
@@ -56,7 +71,7 @@
     height:200px;
     position: relative;
 
-    z-index: 3;
+    z-index: 2;
     margin: 30px 30px 30px 30px;
     
   }
@@ -82,18 +97,10 @@
     top: 0;
   }
 
-  #gameinst {
-    font-family: 'Amatic SC', 'cursive';
-    position: relative;
-    left: 255px;
-    top: 50px;
-   }
-
   #startbutton{
     font-family: 'Amatic SC', 'cursive';
     position: relative;
-    left: 255px;
-    top: 50px;
+    left: 525px;
     z-index: 5;
     width: 80px;
     height: 40px;
@@ -104,8 +111,7 @@
   #resetbutton{
     font-family: 'Amatic SC', 'cursive';
     position: relative;
-    left: 315px;
-    top: 50px;
+    left: 750px;
     z-index: 5;
     width: 80px;
     height: 40px;
@@ -114,12 +120,7 @@
   }
   
   #center {
-   margin: auto;
-   position: relative;
-   top: 30px;
-   left: -75px;
-   z-index: 2;
-   
+    margin:auto;
 }
 #form-buscar {
     margin: auto;
@@ -210,9 +211,6 @@ a {
     background-color: white;
     text-align: center;
     margin: auto;
-    position: relative;
-    top: 30px;
-    left: -89px;
 }
 
 .link-1:hover {
@@ -247,7 +245,6 @@ p{
     background-color: white;
     text-align: center;
     margin: auto;
-  
 }
 footer {
     border-top: 1px solid gray;
@@ -257,9 +254,4 @@ footer {
 }
 #container {
     color: var(--blue);
-  }
-
-  #idforlinks {
-    position: relative;
-    right: -15px;
   }
