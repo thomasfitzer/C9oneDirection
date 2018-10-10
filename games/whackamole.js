@@ -41,6 +41,8 @@ function startGame() {
 }
 
 
+
+
 function bonk(e) {
   if(!e.isTrusted) return; // cheater!
   score++;
@@ -48,3 +50,12 @@ function bonk(e) {
   scoreBoard.textContent = score;
 }
 moles.forEach(mole => mole.addEventListener('click', bonk));
+
+document .getElementById("resetbutton").addEventListener("click",resetGame)
+function resetGame(){
+scoreBoard.textContent = 0;
+timeUp = false;
+score = 0;
+peep();
+setTimeout(() => timeUp = true, 10000);
+}
