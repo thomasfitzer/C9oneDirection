@@ -2,6 +2,6 @@
 
   As a team, we were able to wireframe our project rather quickly.  It was decided that we wanted to provide the ability to search for professionals (therapists, physicians, etc.), for symptoms/specific illnesses, and medications and their side effects. Users are able to get a overview through embedded videos of what some illnesses are, what kinds of psychotherapy are available, and hear stories of success/motivation.  A stress relieving game was created, as was a POD specific chatroom.
 
-  To achieve our product we implemented Bootstrap Carousels, Geolocation to find nearby resources such as psychiatrists and clinics, Packetcode, Firebase, APIs from Yelp, the FDA, Google Maps, and one that allowed users to search for symptoms and diagnoses.
+  To achieve our product we implemented Bootstrap Carousels and Video Cards, Geolocation to find nearby resources such as psychiatrists and clinics, Packetcode, Firebase, APIs from Yelp, the FDA, Google Maps, and one that allowed users to search for symptoms and diagnoses.
 
 https://p1d.herokuapp.com/index.html
