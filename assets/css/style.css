@@ -137,7 +137,7 @@ footer {
     color: var(--blue);
   }
   .drug{
-      font-size: 25px;
+      font-size: 20px;
       color: black;
       font-family: 'Times New Roman', Times, serif;
       text-align: center;
@@ -194,5 +194,13 @@ footer {
 }
 #homeo {
     text-shadow:2px 2px #ff0000;
+}
+
+h5 {
+    color:red;
+    text-align: center;
+}
+#definitionResults {
+    font-size: 18px;
 }
 
