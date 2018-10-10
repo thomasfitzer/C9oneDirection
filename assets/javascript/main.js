@@ -125,6 +125,7 @@ $(document).ready(function () {
 
                         var buttonGuy = $("<a>");
                             buttonGuy.attr("href", link);
+                            buttonGuy.attr("target", "_blank");
                             buttonGuy.addClass("btn");
                             buttonGuy.addClass("text-center");
                             buttonGuy.addClass("btn-primary");
