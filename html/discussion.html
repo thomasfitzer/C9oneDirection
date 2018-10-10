@@ -1,81 +1,89 @@
 <html>
-    <head>
-        <title>Packet Code Chat Room</title>
-        <link rel = "stylesheet" href = "../assets/css/chatstlye.css">
-        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        
-        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-console.log("hello");
-  var config = {
-    apiKey: "AIzaSyB8I42KHR3l7R1ZkMXC7BCHABMXJimEr6s",
-    authDomain: "project-one-direction.firebaseapp.com",
-    databaseURL: "https://project-one-direction.firebaseio.com",
-    projectId: "project-one-direction",
-    storageBucket: "project-one-direction.appspot.com",
-    messagingSenderId: "67112507944"
-  };
-  firebase.initializeApp(config);
+
+<head>
+    <title>Packet Code Chat Room</title>
+    <link rel="stylesheet" href="../assets/css/chatstlye.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        console.log("hello");
+        var config = {
+            apiKey: "AIzaSyB8I42KHR3l7R1ZkMXC7BCHABMXJimEr6s",
+            authDomain: "project-one-direction.firebaseapp.com",
+            databaseURL: "https://project-one-direction.firebaseio.com",
+            projectId: "project-one-direction",
+            storageBucket: "project-one-direction.appspot.com",
+            messagingSenderId: "67112507944"
+        };
+        firebase.initializeApp(config);
 
 
-            var name = "";
-            
-            
-            $(document).ready(function(){
-                
-                firebase.database().ref('/chat/').on('child_added', function(snapshot){
-                    var data = "<div id = 'm'><p class = 'name'>" + snapshot.child('name').val() + "</p><p class = 'message'>" + snapshot.child('message').val() + "</p></div>";
+        var name = "";
 
-                    $("#messages").html($("#messages").html() + data);
-                });
-                
-                $("#name_submit").on('click', function(){
-                    name = $("#name").val();
-                    $("#name_prompt_parent").fadeOut();
-                    
-                    firebase.database().ref('/chat/').push ({
-                        name: "",
-                        message: "<i>" + name + " joined the chatroom</i>"
-                    });
-                }); 
-                
-                $("#send_button").on('click', function(){
-                    var mess = $("#msg").val();
-                    
-                    firebase.database().ref('/chat/' + Date.now()).set({
-                        name: name,
-                        message: mess
-                    });
-                    
-                    $("#msg").val("");
-                });
-                
+
+        $(document).ready(function () {
+
+            firebase.database().ref('/chat/').on('child_added', function (snapshot) {
+                var data = "<div id = 'm'><p class = 'name'>" + snapshot.child('name').val() + "</p><p class = 'message'>" + snapshot.child('message').val() + "</p></div>";
+
+                $("#messages").html($("#messages").html() + data);
             });
-            
-        </script>
-    </head>
-    
-    <body>
-        <div id = "name_prompt_parent">
-            <div id = "name_prompt">
-                <p class = "title">Hey There ! Why don't you say your name ?</p>
-                <input type = "text" id = "name" class = "form-control">
+
+            $("#name_submit").on('click', function () {
+                name = $("#name").val();
+                $("#name_prompt_parent").fadeOut();
+
+                firebase.database().ref('/chat/').push({
+                    name: "",
+                    message: "<i>" + name + " joined the chatroom</i>"
+                });
+            });
+
+            $("#send_button").on('click', function () {
+                var mess = $("#msg").val();
+
+                firebase.database().ref('/chat/' + Date.now()).set({
+                    name: name,
+                    message: mess
+                });
+
+                $("#msg").val("");
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="container bg-primary">
+        <div class="jumbotron bg-primary" id="name_prompt_parent">
+
+            <div id="name_prompt">
+                <p class="title">Hey There ! Why don't you say your name ?</p>
+                <input type="text" id="name" class="form-control">
                 <br>
-                <button id = "name_submit" class = "btn btn-success">Submit</button>
+                <button id="name_submit" class="btn btn-success">Submit</button>
             </div>
         </div>
-        
-        <div id = "chatroom">
-            <div id = "messages">
-                
+    </div>
+
+    </div>
+
+    <div class="jumbotron">
+        <div id="chatroom">
+            <div id="messages"></div>
+            <div id="input">
+                <textarea id="msg" class="form-control" id="message"></textarea>
+                <button id="send_button" class="btn btn-primary">Send</button>
             </div>
-            <div id = "input">
-                <textarea id = "msg" class = "form-control" id = "message"></textarea>
-                <button id = "send_button" class = "btn btn-primary">Send</button>
-            </div>
+
+
         </div>
-        
-    
-    </body>
+    </div>
+
+</body>
+
 </html>
