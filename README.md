@@ -4,4 +4,6 @@
 
   To achieve our product we implemented Bootstrap Carousels and Video Cards, Geolocation to find nearby resources such as psychiatrists and clinics, Packetcode, Firebase, APIs from Yelp, the FDA, Google Maps, and one that allowed users to search for symptoms and diagnoses.
 
+Project members (and github name): Kristen Fairman (klfairman), Thomas Fitzer (thomasfitzer), Jack Morrisey (jckmrrsy), Isaiah Ramsey (Iramsey0418), Denis Jeong (denisplaster).
+
 https://p1d.herokuapp.com/index.html
