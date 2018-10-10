@@ -70,18 +70,89 @@ $(document).ready(function () {
                     var location = response[i].location.address1;
                     var phone = response[i].display_phone;
                     var link = response[i].url;
-
+                    var yelpLatitude = response[i].coordinates.latitude;
+                    var yelpLongitude = response[i].coordinates.longitude;
+                    
                     // Appending results
-                    yelpDiv.append("<div class='card-header'><h4>" + name +
-                        "</h4></div><div class='card-body'><img width='250' height='250' src='" + yelpImage +
-                        "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
-                        link + "' class='btn btn-primary'>Visit provider</a></div>");
+                    // yelpDiv.append("<div class='card-header'><h4>" + name +
+                    //     "</h4></div><div class='card-body'><div class='row'><div class='col-lg-8'><img width='250' height='250' src='" + yelpImage +
+                    //     "'><p class='card-text'>" + location + "</p><p class='card-text'>Phone: " + phone + "</p><a href='" +
+                    //     link + "' class='btn btn-primary'>Visit provider</a></div><div class='col-lg-4'></div></div></div>");
+                        
+                        var cardDiv = $("<div>");
+                            cardDiv.addClass("card-header");
+                            var headerName = $("<h4>");
+                            headerName.text(name);
+                        cardDiv.append(headerName);
+                    
+                    yelpDiv.append(cardDiv);
+
+                        var cardBody = $("<div>")
+                            cardBody.addClass("card-body");
+                    yelpDiv.append(cardBody); 
+
+                        var cardRow = $("<div>");
+                            cardRow.addClass("row");
+                    
+                    cardBody.append(cardRow);
+                // Image result from Yelp 
+                        var colOne = $("<div>");
+                            colOne.addClass("col-lg-4");
+                    cardRow.append(colOne);
+                        
+                        var imgGuy = $("<img>");
+                            imgGuy.attr("width", 250);
+                            imgGuy.attr("height", 250);
+                            imgGuy.attr("src", yelpImage);
+                    colOne.append(imgGuy);
+                // Information and link to Yelp result 
+                        var colTwo = $("<div>");
+                            colTwo.addClass("col-lg-4");
+                            colTwo.addClass("text-center");
+                    cardRow.append(colTwo);
+
+                        var firstP = $("<p>");
+                            firstP.addClass("card-text");
+                            firstP.addClass("text-left");
+                            firstP.text(location);
+                    colTwo.append(firstP);
+
+                        var secondP = $("<p>");
+                            secondP.addClass("card-text");
+                            secondP.addClass("text-left");
+                            secondP.text("Phone: " + phone);
+                    colTwo.append(secondP);
+
+                        var buttonGuy = $("<a>");
+                            buttonGuy.attr("href", link);
+                            buttonGuy.attr("target", "_blank");
+                            buttonGuy.addClass("btn");
+                            buttonGuy.addClass("text-center");
+                            buttonGuy.addClass("btn-primary");
+                            buttonGuy.text("Visit Provider");
+                    colTwo.append(buttonGuy);
+                    // Google maps location of provider 
+                        var colThree = $("<div>");
+                            colThree.addClass("col-lg-4");
+                            // Google Maps API
+                            var mapGuy = $("<iframe>");
+                            mapGuy.attr("width", 300);
+                            mapGuy.attr("height", 250);
+                            mapGuy.attr("src", "https://www.google.com/maps/embed/v1/view?key=AIzaSyB7S0lp264tn9L58xuL22mtADYmBF4Ke_c&zoom=15&maptype=roadmap&center="
+                            + yelpLatitude + "," + yelpLongitude) 
+                   
+                    colThree.append(mapGuy);
+                    cardRow.append(colThree);     
 
                     colGuy.append(yelpDiv);
                     rowGuy.append(colGuy);
-                    $("#dump-yelp-here").append(rowGuy);
-                }
+                $("#dump-yelp-here").append(rowGuy);
+                        
+                };
 
+                 
+                    
+                
 
             });
 
@@ -150,6 +221,7 @@ $(document).ready(function () {
         function clearResults() {
             $("#dump-yelp-here").empty();
             $(".table tbody").empty();
+            $("#defineHere").empty();
         }
         // was var word_id
         var userSearch = $(".form-control").val().trim();
