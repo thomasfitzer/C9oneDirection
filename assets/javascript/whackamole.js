@@ -4,6 +4,7 @@ const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let number = 10;
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -31,14 +32,17 @@ function peep() {
         if (!timeUp) peep();
     }, time);
 }
-document.getElementById("startbutton").addEventListener("click", startGame, startTimer);
+document.getElementById("startbutton").addEventListener("click", startGame);
 function startGame() {
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
+    
+    
 
     peep();
-    setTimeout(() => timeUp = true, 10000)
+    setTimeout(() => timeUp = true, 10000);
+    
 }
 
 
@@ -51,6 +55,40 @@ function bonk(e) {
     scoreBoard.textContent = score;
 }
 moles.forEach(mole => mole.addEventListener('click', bonk));
+
+
+// var intervalId;
+    
+    
+         
+    
+//         function runTimer() {
+           
+//             intervalId = setInterval(decrement, 1000);
+          
+//         }
+    
+//         function decrement() {
+            
+//           number--;
+    
+//           $("#show-number").html("<h2>" + (number) + "</h2>");
+//             //Stops the timer when it reaches 0.
+//           if (number === 0) {
+    
+//             stopTimer();
+            
+            
+//           };
+          
+
+//         }
+//         //When the timer is stopped, the interval is cleared.
+//         function stopTimer(){
+//             clearInterval(intervalId);
+//         }
+//         $("#startButton").on("click", runTimer);
+//         $("#show-number").html("<h2>" + (number) + "</h2>");
 
   
 
